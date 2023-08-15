@@ -4,12 +4,14 @@ import Post from "../components/Post";
 const Homepage = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/post").then((response) => {
-      response.json().then((posts) => {
-        console.log("Posts", posts);
-        setPosts(posts);
-      });
-    });
+    fetch("https://blog-app-backend-p802.onrender.com/api/post").then(
+      (response) => {
+        response.json().then((posts) => {
+          console.log("Posts", posts);
+          setPosts(posts);
+        });
+      }
+    );
   }, []);
   return <>{posts.length > 0 && posts.map((post) => <Post {...post} />)}</>;
 };
