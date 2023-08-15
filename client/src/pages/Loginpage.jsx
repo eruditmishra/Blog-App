@@ -10,12 +10,15 @@ const Loginpage = () => {
 
   const login = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:4000/api/users/login", {
-      method: "POST",
-      body: JSON.stringify({ userName, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://blog-app-backend-p802.onrender.com/users/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ userName, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }
+    );
     if (response.ok) {
       response.json().then((userInfo) => {
         // Store the token in local storage

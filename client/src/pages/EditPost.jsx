@@ -40,13 +40,15 @@ const EditPost = () => {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/post/" + id).then((resposnse) => {
-      resposnse.json().then((postInfo) => {
-        setTitle(postInfo.title);
-        setContent(postInfo.content);
-        setSummary(postInfo.summary);
-      });
-    });
+    fetch("https://blog-app-backend-p802.onrender.com/api/post/" + id).then(
+      (resposnse) => {
+        resposnse.json().then((postInfo) => {
+          setTitle(postInfo.title);
+          setContent(postInfo.content);
+          setSummary(postInfo.summary);
+        });
+      }
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

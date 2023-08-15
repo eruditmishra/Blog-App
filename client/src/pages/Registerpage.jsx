@@ -5,11 +5,14 @@ const Registerpage = () => {
   const [password, setPassword] = useState("");
   const register = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:4000/api/users/register", {
-      method: "POST",
-      body: JSON.stringify({ userName, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://blog-app-backend-p802.onrender.com/api/users/register",
+      {
+        method: "POST",
+        body: JSON.stringify({ userName, password }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     if (response.status === 200) {
       alert("Registration Successfule");
     } else {
