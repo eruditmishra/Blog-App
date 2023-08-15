@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
-import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 const modules = {
   toolbar: [
@@ -39,8 +39,6 @@ const EditPost = () => {
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     fetch("http://localhost:4000/api/post/" + id).then((resposnse) => {
       resposnse.json().then((postInfo) => {
@@ -49,6 +47,7 @@ const EditPost = () => {
         setSummary(postInfo.summary);
       });
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updatePost = async (event) => {
