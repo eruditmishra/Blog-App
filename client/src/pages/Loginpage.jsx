@@ -11,7 +11,7 @@ const Loginpage = () => {
   const login = async (event) => {
     event.preventDefault();
     const response = await fetch(
-      "https://blog-app-backend-p802.onrender.com/users/login",
+      "https://blog-app-backend-p802.onrender.com/api/users/login",
       {
         method: "POST",
         body: JSON.stringify({ userName, password }),

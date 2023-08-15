@@ -13,7 +13,7 @@ const port = process.env.PORT || 4000;
 
 connectDB();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "https://udit-blog.vercel.app/" }));
 app.use(express.json());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use("/api/users", userRoutes);

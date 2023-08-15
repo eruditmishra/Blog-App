@@ -7,7 +7,7 @@ const Header = () => {
   const userName = userInfo?.userName;
 
   const logout = () => {
-    fetch("http://localhost:4000/users/logout", {
+    fetch("https://blog-app-backend-p802.onrender.com/users/logout", {
       credentials: "include",
       method: "POST",
     })
@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   const fetchUserProfile = () => {
-    fetch("http://localhost:4000/users/profile", {
+    fetch("https://blog-app-backend-p802.onrender.com/users/profile", {
       credentials: "include",
     })
       .then((response) => {
