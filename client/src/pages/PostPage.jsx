@@ -9,13 +9,11 @@ const PostPage = () => {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`https://blog-app-backend-p802.onrender.com/api/post/` + id).then(
-      (response) => {
-        response.json().then((postInfo) => {
-          setPostInfo(postInfo);
-        });
-      }
-    );
+    fetch(`http://localhost:4000/api/post/` + id).then((response) => {
+      response.json().then((postInfo) => {
+        setPostInfo(postInfo);
+      });
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

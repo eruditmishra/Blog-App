@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 
@@ -7,7 +7,7 @@ const Header = () => {
   const userName = userInfo?.userName;
 
   const logout = () => {
-    fetch("https://blog-app-backend-p802.onrender.com/users/logout", {
+    fetch("http://localhost:4000/api/users/logout", {
       credentials: "include",
       method: "POST",
     })
@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   const fetchUserProfile = () => {
-    fetch("https://blog-app-backend-p802.onrender.com/users/profile", {
+    fetch("http://localhost:4000/api/users/profile", {
       credentials: "include",
     })
       .then((response) => {
@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+        Blog Bloom
       </Link>
       <nav>
         {userName && (

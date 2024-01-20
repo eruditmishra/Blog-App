@@ -40,15 +40,13 @@ const EditPost = () => {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://blog-app-backend-p802.onrender.com/api/post/" + id).then(
-      (resposnse) => {
-        resposnse.json().then((postInfo) => {
-          setTitle(postInfo.title);
-          setContent(postInfo.content);
-          setSummary(postInfo.summary);
-        });
-      }
-    );
+    fetch("http://localhost:4000/api/post" + id).then((resposnse) => {
+      resposnse.json().then((postInfo) => {
+        setTitle(postInfo.title);
+        setContent(postInfo.content);
+        setSummary(postInfo.summary);
+      });
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -75,6 +73,8 @@ const EditPost = () => {
       }
     } catch (error) {
       console.error("Error updating post:", error);
+      console.log("Response status:", error?.response?.status);
+      console.log("Response status text:", error?.response?.statusText);
     }
   };
 
